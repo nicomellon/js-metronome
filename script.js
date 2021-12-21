@@ -1,12 +1,16 @@
-// HTML elements
+/** HTML elements **/
 const startBtn = document.querySelector("#start-btn");
 const stopBtn = document.querySelector("#stop-btn");
 const bpmInput = document.querySelector("#bpm-input");
 
-// control functions
+/**  control functions **/
 function startMetronome() {
   if (metronomeIsOn()) stopMetronome();
+
+  /* get metronome params */
   const bpm = bpmInput.value;
+
+  /* create metronome & start */
   window.metronome = new Metronome(bpm);
   metronome.start();
 }
