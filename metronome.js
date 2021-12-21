@@ -1,6 +1,6 @@
 class Metronome {
   constructor(bpm) {
-    this.click = {
+    this.sound = {
       high: new Audio("./assets/High Seiko SQ50.wav"),
       low: new Audio("./assets/Low Seiko SQ50.wav"),
     };
@@ -11,7 +11,7 @@ class Metronome {
 
   start() {
     this.intervalID = setInterval(() => {
-      this.click.high.play();
+      this.sound.low.play();
     }, (1000 * 60) / this.bpm);
     this.isOn = true;
   }
