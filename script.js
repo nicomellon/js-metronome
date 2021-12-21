@@ -16,7 +16,7 @@ function stopMetronome() {
   delete window.metronome;
 }
 
-const handlers = {
+const handler = {
   start: () => {
     startMetronome();
     startBtn.innerText = "STOP";
@@ -28,7 +28,7 @@ const handlers = {
 };
 
 function clickHandler() {
-  window.metronome ? handlers.stop() : handlers.start();
+  window.metronome ? handler.stop() : handler.start();
 }
 
 function inputHandler() {
