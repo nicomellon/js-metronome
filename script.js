@@ -31,7 +31,15 @@ function clickHandler() {
   window.metronome ? handlers.stop() : handlers.start();
 }
 
+function inputHandler() {
+  if (window.metronome) {
+    stopMetronome();
+    startMetronome();
+  }
+}
+
 // event listeners
 startBtn.onclick = clickHandler;
+bpmInput.onchange = inputHandler;
 
 console.log("script.js loaded");
