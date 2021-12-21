@@ -5,11 +5,18 @@ class Metronome {
       low: new Audio("./assets/Low Seiko SQ50.wav"),
     };
     this.bpm = bpm;
+    this.isOn = false;
+    this.intervalID = null;
   }
 
   start() {
-    setInterval(() => {
+    this.intervalID = setInterval(() => {
       this.click.high.play();
     }, (1000 * 60) / this.bpm);
+    this.isOn = true;
+  }
+
+  stop() {
+    clearInterval(this.intervalID);
   }
 }
