@@ -1,5 +1,7 @@
+console.log("metronome.js loaded");
+
 class Metronome {
-  constructor(bpm) {
+  constructor(bpm, steps) {
     this.sound = {
       high: new Audio("./assets/High Seiko SQ50.wav"),
       low: new Audio("./assets/Low Seiko SQ50.wav"),

@@ -1,8 +1,23 @@
 /** HTML elements **/
 const startBtn = document.querySelector("#start-btn");
 const bpmInput = document.querySelector("#bpm-input");
+const stepsForm = document.querySelector("#steps-form");
 
-/**  control functions **/
+function clearSteps() {
+  while (stepsForm.lastChild) {
+    stepsForm.removeChild(stepsForm.lastChild);
+  }
+}
+
+function createStep(checked) {
+  const stepInput = document.createElement("input");
+  stepInput.type = "checkbox";
+  stepInput.checked = checked;
+
+  stepsForm.appendChild(stepInput);
+}
+
+/**  metronome control functions **/
 function startMetronome() {
   /* get metronome params */
   const bpm = bpmInput.value;
@@ -38,8 +53,13 @@ function inputHandler() {
   }
 }
 
-// event listeners
+/** event listeners **/
 startBtn.onclick = clickHandler;
 bpmInput.onchange = inputHandler;
 
+/** on script load **/
 console.log("script.js loaded");
+createStep(true);
+createStep(false);
+createStep(false);
+createStep(false);
