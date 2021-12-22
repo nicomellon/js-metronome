@@ -2,27 +2,34 @@
 const startBtn = document.querySelector("#start-btn");
 const bpmInput = document.querySelector("#bpm-input");
 const stepsForm = document.querySelector("#steps-form");
+const addStepBtn = document.querySelector("#add-step-btn");
+const removeStepBtn = document.querySelector("#remove-step-btn");
+const stepsCount = document.querySelector("#steps-count");
 
-function clearSteps() {
-  while (stepsForm.lastChild) {
-    stepsForm.removeChild(stepsForm.lastChild);
-  }
+function removeStep() {
+  if (stepsForm.lastChild) stepsForm.removeChild(stepsForm.lastChild);
+  updateStepSpan();
 }
 
-function createStep(checked) {
+function addStep(checked) {
   const stepInput = document.createElement("input");
   stepInput.type = "checkbox";
   stepInput.checked = checked;
-
   stepsForm.appendChild(stepInput);
+  updateStepSpan();
+}
+
+function updateStepSpan() {
+  stepsCount.innerText = stepsForm.childElementCount;
 }
 
 /**  metronome control functions **/
 function startMetronome() {
   /* get metronome params */
   const bpm = bpmInput.value;
+  const steps = stepsForm.childElementCount;
   /* create metronome & start */
-  window.metronome = new Metronome(bpm);
+  window.metronome = new Metronome(bpm, steps);
   metronome.start();
 }
 
@@ -31,7 +38,7 @@ function stopMetronome() {
   delete window.metronome;
 }
 
-const handlers = {
+const startBtnHandler = {
   start: () => {
     startMetronome();
     startBtn.innerText = "STOP";
@@ -43,7 +50,7 @@ const handlers = {
 };
 
 function clickHandler() {
-  window.metronome ? handlers.stop() : handlers.start();
+  window.metronome ? startBtnHandler.stop() : startBtnHandler.start();
 }
 
 function inputHandler() {
@@ -56,10 +63,12 @@ function inputHandler() {
 /** event listeners **/
 startBtn.onclick = clickHandler;
 bpmInput.onchange = inputHandler;
+addStepBtn.onclick = () => addStep(false);
+removeStepBtn.onclick = removeStep;
 
 /** on script load **/
 console.log("script.js loaded");
-createStep(true);
-createStep(false);
-createStep(false);
-createStep(false);
+addStep(true);
+addStep(false);
+addStep(false);
+addStep(false);

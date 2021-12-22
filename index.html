@@ -14,12 +14,18 @@
 
     <label for="bpm">BPM: </label>
     <input type="number" name="bpm" id="bpm-input" min="10" max="300" />
-
-    <button id="start-btn">START</button>
-    <form id="steps-form">
-      <select name="time-signature" id="time-signature">
-        <option value="4/4">4/4</option>
-      </select>
-    </form>
+    <div>
+      <span id="steps-count">Steps:</span>
+      <button id="remove-step-btn">-</button>
+      <button id="add-step-btn">+</button>
+      <form id="steps-form"></form>
+    </div>
+    <label for="time-signature">Presets: </label>
+    <select name="time-signature" id="time-signature">
+      <option value="4/4">4/4</option>
+    </select>
+    <div>
+      <button id="start-btn">START</button>
+    </div>
   </body>
 </html>
