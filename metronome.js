@@ -9,12 +9,17 @@ class Metronome {
     this.bpm = bpm;
     this.steps = steps;
     this.intervalID = null;
-    this.beatcount = 0;
+    this.beatcount = 1;
   }
 
   start() {
+    // first beat
+    this.sound.high.play();
+    // interval
     this.intervalID = setInterval(() => {
-      this.beatcount % this.steps === 0
+      const currentStep = this.beatcount % this.steps.length;
+      console.log(currentStep);
+      this.steps[currentStep].checked
         ? this.sound.high.play()
         : this.sound.low.play();
       this.beatcount++;

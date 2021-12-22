@@ -11,11 +11,12 @@
   <body>
     <h1>JS Metronome</h1>
     <hr />
-
-    <label for="bpm">BPM: </label>
-    <input type="number" name="bpm" id="bpm-input" min="10" max="300" />
     <div>
-      <span id="steps-count">Steps:</span>
+      <input type="number" name="bpm-input" id="bpm-input" min="10" max="300" />
+      <label for="bpm-input">BPM</label>
+    </div>
+    <div>
+      <span id="steps-count"></span> steps
       <button id="remove-step-btn">-</button>
       <button id="add-step-btn">+</button>
       <form id="steps-form"></form>

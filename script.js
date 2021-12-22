@@ -7,7 +7,8 @@ const removeStepBtn = document.querySelector("#remove-step-btn");
 const stepsCount = document.querySelector("#steps-count");
 
 function removeStep() {
-  if (stepsForm.lastChild) stepsForm.removeChild(stepsForm.lastChild);
+  if (stepsForm.childElementCount > 1)
+    stepsForm.removeChild(stepsForm.lastChild);
   updateStepSpan();
 }
 
@@ -27,7 +28,9 @@ function updateStepSpan() {
 function startMetronome() {
   /* get metronome params */
   const bpm = bpmInput.value;
-  const steps = stepsForm.childElementCount;
+  // const steps = stepsForm.childElementCount;
+  const steps = stepsForm.childNodes;
+  console.log(steps);
   /* create metronome & start */
   window.metronome = new Metronome(bpm, steps);
   metronome.start();
