@@ -1,7 +1,7 @@
 console.log("metronome.js loaded");
 
 class Metronome {
-  constructor(bpm, steps) {
+  constructor(bpm, steps, startBtn) {
     this.sound = {
       high: new Audio("./assets/High Seiko SQ50.wav"),
       low: new Audio("./assets/Low Seiko SQ50.wav"),
@@ -10,11 +10,14 @@ class Metronome {
     this.steps = steps;
     this.intervalID = null;
     this.beatcount = 1;
+    this.startBtn = startBtn;
   }
 
   start() {
     // first beat
     this.sound.high.play();
+    this.startBtn.innerText = "STOP";
+
     // interval
     this.intervalID = setInterval(() => {
       const currentStep = this.beatcount % this.steps.length;
@@ -28,5 +31,6 @@ class Metronome {
 
   stop() {
     clearInterval(this.intervalID);
+    delete window.metronome;
   }
 }
