@@ -21,10 +21,8 @@ class Metronome {
     // interval
     this.intervalID = setInterval(() => {
       const currentStep = this.beatcount % this.steps.length;
-      console.log(currentStep);
-      this.steps[currentStep].checked
-        ? this.sound.high.play()
-        : this.sound.low.play();
+      const stepCheckbox = this.steps[currentStep].querySelector("input");
+      stepCheckbox.checked ? this.sound.high.play() : this.sound.low.play();
       this.beatcount++;
     }, (1000 * 60) / this.bpm);
   }
@@ -32,5 +30,6 @@ class Metronome {
   stop() {
     clearInterval(this.intervalID);
     delete window.metronome;
+    this.startBtn.innerText = "START";
   }
 }

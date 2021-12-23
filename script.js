@@ -8,13 +8,9 @@ function createMetronomeAndStart() {
   const bpm = bpmInput.value || 60;
   const steps = stepsSection.childNodes;
   console.log(steps);
-  // create metronome & start
+  // initialize metronome
   window.metronome = new Metronome(bpm, steps, startBtn);
   metronome.start();
-}
-
-function clickHandler() {
-  window.metronome ? metronome.stop() : createMetronomeAndStart();
 }
 
 function bpmInputHandler() {
@@ -24,8 +20,12 @@ function bpmInputHandler() {
   }
 }
 
+function startBtnHandler() {
+  window.metronome ? metronome.stop() : createMetronomeAndStart();
+}
+
 /** event listeners **/
-startBtn.onclick = clickHandler;
+startBtn.onclick = startBtnHandler;
 bpmInput.onchange = bpmInputHandler;
 
 /** on script load **/

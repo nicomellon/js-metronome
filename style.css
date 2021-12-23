@@ -1,8 +1,31 @@
 body {
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* UTILITY CLASSES */
+.flex {
+  display: flex;
+}
 .border {
   border: 1px solid black;
 }
@@ -16,7 +39,7 @@ body {
 /* COMPONENTS */
 
 .metronome {
-  max-width: 95vw;
+  min-width: 60vw;
   display: grid;
   gap: 0.5rem;
   grid-template-areas:
@@ -31,6 +54,17 @@ body {
   margin: 0.2rem;
 }
 
+.bpm-input {
+  border: none;
+  outline: none;
+  max-width: 80px;
+  font-size: xx-large;
+  text-align: center;
+}
+.bpm-div::after {
+  content: "bpm";
+}
+
 .screen-steps {
   display: grid;
   grid-template-areas: "one two three";
@@ -41,5 +75,20 @@ body {
 }
 
 .steps-section {
+  counter-reset: css-counter 0;
   grid-column: span 3;
+  gap: 0.5rem;
+}
+#steps-count {
+  font-size: xx-large;
+  margin: 0;
+}
+
+.step-div {
+  flex-direction: column;
+  align-items: center;
+  counter-increment: css-counter 1;
+}
+.step-div::before {
+  content: counter(css-counter);
 }

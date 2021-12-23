@@ -11,13 +11,10 @@
     <script defer src="./script.js"></script>
   </head>
   <body>
-    <h1>JS Metronome</h1>
-    <hr />
-    <!--  -->
     <main class="metronome border rounded centered">
       <section></section>
       <section class="screen-section border rounded">
-        <div>
+        <div class="bpm-div">
           <input
             type="number"
             name="bpm-input"
@@ -26,15 +23,13 @@
             min="1"
             max="300"
           />
-          <em>bpm</em>
         </div>
-        <hr />
         <div class="screen-steps">
           <div>
             <button id="remove-step-btn">-</button>
           </div>
           <div>
-            <h1 id="steps-count">4</h1>
+            <p id="steps-count">4</p>
             <em>steps</em>
           </div>
           <div>
@@ -48,7 +43,7 @@
       <section class="main-btn-container centered">
         <button id="start-btn">START</button>
       </section>
-      <section class="steps-section centered"></section>
+      <section class="steps-section flex centered"></section>
     </main>
   </body>
 </html>
