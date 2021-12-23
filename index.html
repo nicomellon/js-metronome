@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>JS Metronome</title>
     <script defer src="./metronome.js"></script>
     <script defer src="./script.js"></script>
@@ -11,22 +12,42 @@
   <body>
     <h1>JS Metronome</h1>
     <hr />
-    <div>
-      <input type="number" name="bpm-input" id="bpm-input" min="10" max="300" />
-      <label for="bpm-input">BPM</label>
-    </div>
-    <div>
-      <span id="steps-count"></span> steps
-      <button id="remove-step-btn">-</button>
-      <button id="add-step-btn">+</button>
-      <form id="steps-form"></form>
-    </div>
-    <label for="time-signature">Presets: </label>
-    <select name="time-signature" id="time-signature">
-      <option value="4/4">4/4</option>
-    </select>
-    <div>
-      <button id="start-btn">START</button>
-    </div>
+    <!--  -->
+    <main class="metronome border rounded centered">
+      <section></section>
+      <section class="screen-section border rounded">
+        <div>
+          <input
+            type="number"
+            name="bpm-input"
+            class="bpm-input"
+            placeholder="60"
+            min="10"
+            max="300"
+          />
+          <em>bpm</em>
+        </div>
+        <hr />
+        <div class="screen-steps">
+          <div>
+            <button id="remove-step-btn">-</button>
+          </div>
+          <div>
+            <h1 id="steps-count">4</h1>
+            <em>steps</em>
+          </div>
+          <div>
+            <button id="add-step-btn">+</button>
+          </div>
+        </div>
+      </section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section class="main-btn-container centered">
+        <button id="start-btn">START</button>
+      </section>
+      <section class="steps-section centered"></section>
+    </main>
   </body>
 </html>

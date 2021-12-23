@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+}
+
+/* UTILITY CLASSES */
+.border {
+  border: 1px solid black;
+}
+.rounded {
+  border-radius: 0.5rem;
+}
+.centered {
+  margin: auto;
+}
+
+/* COMPONENTS */
+
+.metronome {
+  max-width: 95vw;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-areas:
+    "one two three"
+    "four two five"
+    "six six six ";
+}
+
+.screen-section {
+  grid-row: span 2;
+  text-align: center;
+  margin: 0.2rem;
+}
+
+.screen-steps {
+  display: grid;
+  grid-template-areas: "one two three";
+}
+
+.main-btn-container {
+  grid-column: span 3;
+}
+
+.steps-section {
+  grid-column: span 3;
+}
